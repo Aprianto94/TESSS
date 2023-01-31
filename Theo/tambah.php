@@ -1,3 +1,13 @@
+<?php
+        session_start();
+        
+        $db = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat",'root', '');
+        $query = $db->query("SELECT * FROM masyarakat");
+
+        if( isset($_SESSION["nik"])){
+            header("location:login.php");
+        }
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,46 +18,59 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Register</title>
 </head>
-<body class="bg-secondary">
-    <div class="container-sm">
-    <div class="row row-cols-3">
+<style>
+    body{
+        background-image: url("https://wallpapercave.com/wp/wp1933970.png");
+    }
+</style>
+<body  class="bg-secondary" style="height:100vh;">
+    <div class="align-items-center d-flex" style="height:100vh;">
+            <div class="card bg-white mx-auto d-block" style="width: 35%;">
+                <div class='container'>
+                    <form action="proses_tambah.php" method="post">
         <div></div>
         <div>
             <form action="proses_tambah.php" method="post">
                 <div>
                     <h1 align=center>REGISTER</h1>
                 </div>
+             
                 <div>
-                    <label>NIK</label>
-                    <input type="text" name="nik" class="form-control" id="floatingInput">
-                </div>
-                <div>
-                <div>   
-            
-                <div>
-                    <label>NAMA</label>
-                    <input type="text" name="nama" class="form-control" id="floatingInput">
-                </div>
-                <div>
-                    <label>USERNAME</label>
-                    <input type="text" name="username" class="form-control" id="floatingInput">
-                </div>
-                <div>
-                    <label>PASSWROD</label>
-                    <input type="text" name="password" class="form-control" id="floatingInput">
-                </div>
-                <div>
-                    <label>TELP</label>
-                    <input type="text" name="telp" class="form-control" id="floatingInput">
-                </div>
-                <div>
+                            <label>NIK</label>
+                            <input type="text" name="nik" class="form-control" id="floatingInput">
+                        </div>
+                        <div>
+                        <div>   
+                    
+                        <div>
+                            <label>NAMA</label>
+                            <input type="text" name="nama" class="form-control" id="floatingInput">
+                        </div>
+                        <div>
+                            <label>USERNAME</label>
+                            <input type="text" name="username" class="form-control" id="floatingInput">
+                        </div>
+                        <div>
+                            <label>PASSWROD</label>
+                            <input type="text" name="password" class="form-control" id="floatingInput">
+                        </div>
+                        <div>
+                            <label>TELP</label>
+                            <input type="text" name="telp" class="form-control" id="floatingInput">
+                        </div>
+                        <LABEl>LEVEL</LABEl>
+                        <select class="form-select" name="level" id="level">
+                            <option value="1">PETUGAS</option>
+                            <option value="2">MASYARAKAT</option>
+                        </select>
+                        <div>
                 <div><br>
               
-                    
+                <a href="login.php "class="btn btn-danger">Kembali</a>
                 <button type="submit" class="btn btn-info">Simpan</button>
                 </div>
 
-                <h1><marquee width="100%" direction="left" height="150px">Silahkan Buat Akun :)</marquee></h1> 
+                <h1><marquee width="100%" direction="left" height="">Silahkan Buat Akun :)</marquee></h1> 
             </form>
         </div>
 

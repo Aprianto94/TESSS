@@ -1,3 +1,14 @@
+<?php
+        session_start();
+
+        $nik = $_SESSION['nik'];
+        $db = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat",'root', '');
+        $query = $db->query("SELECT * FROM masyarakat where nik='$nik'");
+
+        if(! isset($_SESSION["nik"])){
+            header("location:login.php");
+        }
+        ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,35 +24,25 @@
   <style>
     body{
         background-image: url("https://wallpapercave.com/wp/wp1933967.jpg");
-        background-size: cover;
+        background-size:cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
   </style>
   <body>
-        <?php
-        session_start();
-        
-        $db = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat",'root', '');
-        $query = $db->query("SELECT * FROM masyarakat");
-
-        if(! isset($_SESSION["nik"])){
-            header("location:login.php");
-        }
-        ?>
     
 <nav class="navbar navbar-dark bg-secondary text-info ">
 <div class="container">
-<h1><marquee width="350%" direction="left" height="">SELAMAT DATANG</marquee></h1> 
 </div> 
 </nav>
     <div class="container-sm">
-        <div class="d-flex">
-            <div class="my-auto">
-                <img src="rect7531.png" alt="" width="300px">
+        <div class="row row-cols-md-2 row-cols-1">
+            <div class="my-auto col-4">
+                <img src="rect7531.png" alt="" class="img-fluid">
             </div>
-            <div class="w-100">
-                <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-info">
-                        <thead class="bg-info text-white">
-                        <h1 class="text-info">LAPORAN PENGADUAN</h1>
+            <div class="col-md-8">
+                <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-info">                        <thead class="bg-info text-white">
+                        <h1 class="text-info">HALAMAN UTAMA</h1>
                         <th>NIK</th>
                         <th>NAMA</th>
                         <th>UPDATE/HAPUS?</th>
@@ -54,8 +55,8 @@
                             <td><?= $data['nama'] ?></td>
                             
                             <td>
-                                <a href="edit.php?nik=<?= $data['nik'] ?>"class="btn btn-info">Update</a>
-                                <a href="proses_hapus.php?nik=<?= $data['nik'] ?>"class="btn btn-info">Hapus</a>
+                                <a href="edit.php?nik=<?= $data['nik'] ?>"class="btn btn-success">Update</a>
+                                <a href="proses_hapus.php?nik=<?= $data['nik'] ?>"class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php endwhile ?>

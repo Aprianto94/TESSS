@@ -40,7 +40,7 @@ if(isset($_SESSION["nik"])){
                 <span>  <input placeholder="NIK" type="text" name="nik" required></span>
                 <br>
                 <br>
-                <span > <input placeholder="PASSWORD" type="text" name="password" required></span>
+                <span > <input placeholder="PASSWORD" type="password" name="password" required></span>
         </div>
                 <br>
                 <br>
