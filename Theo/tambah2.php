@@ -2,9 +2,9 @@
         session_start();
         
         $db = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat",'root', '');
-        $query = $db->query("SELECT * FROM masyarakat");
+        $query = $db->query("SELECT * FROM petugas");
 
-        if( isset($_SESSION["nik"])){
+        if( isset($_SESSION["id_petugas"])){
             header("location:login.php");
         }
         ?>
@@ -27,24 +27,24 @@
     <div class="align-items-center d-flex" style="height:100vh;">
             <div class="card bg-white mx-auto d-block" style="width: 35%;">
                 <div class='container'>
-                    <form action="proses_tambah.php" method="post">
+                    <form action="proses_tambah2.php" method="post">
         <div></div>
         <div>
-            <form action="proses_tambah.php" method="post">
+            <form action="proses_tambah2.php" method="post">
                 <div>
                     <h1 align=center>REGISTER</h1>
                 </div>
              
                 <div>
-                            <label>NIK</label>
-                            <input type="text" name="nik" class="form-control" id="floatingInput">
+                            <label>ID</label>
+                            <input type="text" name="id_petugas" class="form-control" id="floatingInput">
                         </div>
                         <div>
                         <div>   
                     
                         <div>
                             <label>NAMA</label>
-                            <input type="text" name="nama" class="form-control" id="floatingInput">
+                            <input type="text" name="nama_petugas" class="form-control" id="floatingInput">
                         </div>
                         <div>
                             <label>USERNAME</label>
@@ -61,12 +61,12 @@
                         <LABEl>LEVEL</LABEl>
                         <select class="form-select" name="level" id="level">
                             <option value="1">PETUGAS</option>
-                            <option value="2">MASYARAKAT</option>
+                            <option value="2">ADMIN</option>
                         </select>
                         <div>
                 <div><br>
               
-                <a href="login.php "class="btn btn-danger">Kembali</a>
+                <a href="login2.php "class="btn btn-danger">Kembali</a>
                 <button type="submit" class="btn btn-info">Simpan</button>
                 </div>
 

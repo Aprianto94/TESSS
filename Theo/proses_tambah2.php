@@ -1,17 +1,14 @@
 <?php
 
-    $nik = $_POST['nik'];
-    // if (isset($_POST['id_petugas'])){
-    //     $id_petugas = $_POST["id_petugas"];
-    // }
-    $nama = $_POST['nama'];
+    $id_petugas = $_POST['id_petugas'];
+    $nama_petugas = $_POST['nama_petugas'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $telp = $_POST['telp'];
     $level = $_POST['level'];
 
     $database = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat", 'root', '');
-    $query = $database->query("INSERT INTO masyarakat values('$nik','$nama' , '$username','$password','$telp')");
+    $query = $database->query("INSERT INTO petugas values('$id_petugas','$nama_petugas' , '$username','$password','$telp', '$level')");
 
     if($query){
         header("Location:index.php");

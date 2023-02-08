@@ -43,7 +43,7 @@
             <div class="col-md-8">
                 <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-info">                        <thead class="bg-info text-white">
                         <h1 class="text-info">HALAMAN UTAMA</h1>
-                        <th>NIK</th>
+                        <th>USERNAME</th>
                         <th>NAMA</th>
                         <th>UPDATE/HAPUS?</th>
                     </thead>
@@ -51,19 +51,19 @@
                     <tbody>
                     <?php while($data = $query->fetch()): ?>
                         <tr>
-                            <td><?= $data['nik'] ?></td>
+                            <td><?= $data['username'] ?></td>
                             <td><?= $data['nama'] ?></td>
                             
                             <td>
-                                <a href="edit.php?nik=<?= $data['nik'] ?>"class="btn btn-success">Update</a>
-                                <a href="proses_hapus.php?nik=<?= $data['nik'] ?>"class="btn btn-danger">Hapus</a>
+                                <a href="edit.php?nik=<?= $data['username'] ?>"class="btn btn-success">Update</a>
+                                <a href="proses_hapus.php?nik=<?= $data['username'] ?>"class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         <?php endwhile ?>
                     </tbody>
                 </table>
                 <a href="logout.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')">Logout</a>
-                <a href="catatan.php "class="btn btn-secondary">Catatan</a>
+                <a href="laporan.php "class="btn btn-secondary">Laporan</a>
             </div>
         </div>
     </div>

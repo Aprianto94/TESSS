@@ -36,7 +36,7 @@ if(isset($_SESSION["id_petugas"])){
 <div class="container h-100 d-flex">
 
     <div class="card bg-white w-50 m-auto">
-        <form  style="text-align:center;" action="proseslogin.php" method="POST">
+        <form  style="text-align:center;" action="proseslogin2.php" method="POST">
             <h1 class="btn-dark text-info rounded"> LOGIN</h1>
             <div class="container mt-5"  >
                 
@@ -48,7 +48,7 @@ if(isset($_SESSION["id_petugas"])){
                 <br>
                 <br>
                 <button class="btn btn-outline-primary mb-3" >Login</button>
-                <a href="tambah.php "class="btn btn-info mb-3">Register</a>
+                <a href="tambah2.php "class="btn btn-info mb-3">Register</a>
                 <br>
                 <a href="tambah2.php "class="btn btn-info mb-3">ADMIN</a>
                 <br>
