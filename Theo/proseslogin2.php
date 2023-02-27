@@ -1,5 +1,6 @@
 <?php
-$username = $_REQUEST["username"];
+include("koneksi.php");
+    $username = $_REQUEST["username"];
     $password = $_REQUEST["password"];
 
 
@@ -10,10 +11,10 @@ $username = $_REQUEST["username"];
         $data = $query[0];
 
         $_SESSION['id_petugas'] = $data["id_petugas"];
-        $_SESSION["nama"] = $data['nama'];
+        $_SESSION["nama_petugas"] = $data['nama_petugas'];
         $_SESSION["username"] = $_REQUEST['username'];
         
-        header("Location:index.php");
+        header("Location:index2.php");
     }
     else{
         $msg= "";

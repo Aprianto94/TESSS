@@ -17,7 +17,7 @@
 
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
     <title>Laporan</title>
   </head>
     <style>
@@ -28,9 +28,9 @@
     </style>
   <body>
         <?php
-        $nik = $_SESSION['nik'];
+        $id = $_GET['id'];
         $db = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat",'root', '');
-        $query = $db->query("SELECT * FROM pengaduan  where nik='$nik'");
+        $query = $db->query("SELECT * FROM pengaduan inner join tanggapan on 'pengaduan.id_pengaduan'='tanggapan.id_pengaduan' where id_pengaduan='$id'");
 
         ?>
     
@@ -45,8 +45,7 @@
                 <th>Isi Laporan</th>
                 <th>Foto</th>
                 <th>Status</th>
-                <th>UPD/DEL?</th>
-                <th>Detail</th>
+                <th>TANGGAPAN</th>
             </thead>
         
             <tbody>
@@ -59,21 +58,44 @@
                     <td><img src="<?= './foto/' . $data['foto'] ?>" width="100px"></td>
                     <td><?= $data['status'] ?></td>
                     <td>
-                        <a href="edit2.php?nik=<?= $data['nik'] ?>"class="btn btn-secondary"><i class="bi bi-gear-fill"></i></a>
-                        <a href="proses_hapus2.php?id_pengaduan=<?= $data['id_pengaduan'] ?>"class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                    </td> 
-                    <td>
-                    <a href="detail_laporan.php?id=<?= $data['id_pengaduan'] ?>"class="btn btn-success"><i class="bi bi-chat-left-dots"></i></a>
+                        <?= $data['id_petugas'] ?>
+                        <?= $data['tanggapan'] ?>
                     </td>
+
 
                 </tr>
             <?php endwhile ?>
             </tbody>
     </table>
-    <a href="index.php "class="btn btn-danger"><i class="bi bi-arrow-left-circle"></i></a>
-    <a href="tambah5.php"class="btn btn-secondary"><i class="bi bi-plus-circle"></i></a>
+    <a href="laporan.php "class="btn btn-danger">Kembali</a>
+    <a href="tambah5.php"class="btn btn-secondary">Tambah</a>
 
         </div>
+
+       
+                <h2>Tanggapan</h2>
+                <div class="">
+                    <?php
+                    $query = $db->query("select * from tanggapan where id_pengaduan='$id'");
+                    $data = $query->fetchAll(); 
+                        // var_dump($data);
+                        // die();
+                    
+                    ?>
+ <hr>
+                    <?php foreach ($data as $data) : ?>
+                    <h3> Id Admin :
+                        <?=  $data['id_petugas'];?></h3>
+                        <p><?= $data['tanggapan'];?></p>
+                    
+                    <div class=""></div>
+                    <?php endforeach ?>
+                </div>
+        </hr>
+       
+
+    
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

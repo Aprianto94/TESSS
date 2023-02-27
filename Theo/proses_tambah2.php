@@ -11,5 +11,7 @@
     $query = $database->query("INSERT INTO petugas values('$id_petugas','$nama_petugas' , '$username','$password','$telp', '$level')");
 
     if($query){
-        header("Location:index.php");
+        header("Location:login2.php");
      }
+
+     

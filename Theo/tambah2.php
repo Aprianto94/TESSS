@@ -60,7 +60,7 @@
                         </div>
                         <LABEl>LEVEL</LABEl>
                         <select class="form-select" name="level" id="level">
-                            <option value="1">PETUGAS</option>
+                            <option value="1" selected>PETUGAS</option>
                             <option value="2">ADMIN</option>
                         </select>
                         <div>

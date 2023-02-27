@@ -58,11 +58,7 @@
                             <label>TELP</label>
                             <input type="text" name="telp" class="form-control" id="floatingInput">
                         </div>
-                        <LABEl>LEVEL</LABEl>
-                        <select class="form-select" name="level" id="level">
-                            <option value="1">PETUGAS</option>
-                            <option value="2">MASYARAKAT</option>
-                        </select>
+                       
                         <div>
                 <div><br>
               

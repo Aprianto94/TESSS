@@ -14,5 +14,5 @@
     $query = $database->query("INSERT INTO masyarakat values('$nik','$nama' , '$username','$password','$telp')");
 
     if($query){
-        header("Location:index.php");
+        header("Location:login.php");
      }

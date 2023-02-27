@@ -7,12 +7,10 @@ $msg = "";
 if (isset($_GET["msg"])){
     $msg = $_GET["msg"];
 }
-if(isset($_SESSION["nik"])){
-    header("Location:index.php");
-}
-if(isset($_SESSION["id_petugas"])){
-    header("Location:index.php");
-}
+
+//if(isset($_SESSION["id_petugas"])){
+    //header("Location:index.php");
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en" style="height:100vh;">
@@ -50,7 +48,7 @@ if(isset($_SESSION["id_petugas"])){
                 <button class="btn btn-outline-primary mb-3" >Login</button>
                 <a href="tambah2.php "class="btn btn-info mb-3">Register</a>
                 <br>
-                <a href="tambah2.php "class="btn btn-info mb-3">ADMIN</a>
+                <a href="pilih.php "class="btn btn-danger mb-3">Kembali</a>
                 <br>
             </form>
             <style>
