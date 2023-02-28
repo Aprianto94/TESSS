@@ -77,7 +77,7 @@ $query = $db->query("SELECT * FROM pengaduan");
     </div>
 
 
-    <h2>Tanggapan</h2>
+    <h2 class="text-center">TANGGAPAN</h2>
     <div class="container">
         <?php
         $query = $db->query("SELECT * FROM tanggapan INNER JOIN pengaduan ON pengaduan.id_pengaduan = tanggapan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas = tanggapan.id_petugas;");

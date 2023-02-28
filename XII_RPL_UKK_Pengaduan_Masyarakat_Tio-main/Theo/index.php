@@ -44,7 +44,7 @@
                 <div class="card card-body" style="width: 300px;">
                 <br>
                     <a href="logout.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')">Logout</a>
-</br>
+                </br>
                     <a href="laporan.php?id_pengaduan=<?= $_SESSION["nik"]?>"class="btn btn-secondary">Laporan</a>
                 </div>
             </div>
