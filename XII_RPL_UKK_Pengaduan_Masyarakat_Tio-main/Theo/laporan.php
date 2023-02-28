@@ -63,7 +63,7 @@
                         <a href="proses_hapus2.php?id_pengaduan=<?= $data['id_pengaduan'] ?>"class="btn btn-danger"><i class="bi bi-trash"></i></a>
                     </td> 
                     <td>
-                    <a href="detail_laporan.php?id=<?= $data['id_pengaduan'] ?>"class="btn btn-success"><i class="bi bi-chat-left-dots"></i></a>
+                    <a href="detail_laporan.php?id_pengaduan=<?= $data['id_pengaduan'] ?>"class="btn btn-success"><i class="bi bi-chat-left-dots"></i></a>
                     </td>
 
                 </tr>

@@ -30,9 +30,9 @@ $query = $db->query("SELECT * FROM pengaduan");
 
 <body>
     <?php
-    $id = $_GET['id'];
+    $id = $_GET['id_pengaduan'];
     $db = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat", 'root', '');
-    $query = $db->query("SELECT pengaduan.id_pengaduan,pengaduan.tgl_pengaduan,pengaduan.nik,pengaduan.isi_laporan,pengaduan.foto,pengaduan.status,tanggapan.id_petugas,tanggapan.tanggapan FROM pengaduan INNER JOIN tanggapan ON pengaduan.id_pengaduan = tanggapan.id_pengaduan");
+    $sql = $db->query("SELECT * FROM pengaduan INNER JOIN tanggapan ON `pengaduan`.id_pengaduan = `tanggapan`.id_pengaduan WHERE `pengaduan`.id_pengaduan='$id'");
 
     ?>
 
@@ -52,7 +52,7 @@ $query = $db->query("SELECT * FROM pengaduan");
             </thead>
 
             <tbody>
-                <?php while ($data = $query->fetch()) : ?>
+                <?php while ($data = $sql->fetch()) : ?>
                     <tr>
                         <td><?= $data['id_pengaduan'] ?></td>
                         <td><?= "" . date("Y/m/d") ?></td>
@@ -61,7 +61,7 @@ $query = $db->query("SELECT * FROM pengaduan");
                         <td><img src="<?= './foto/' . $data['foto'] ?>" width="100px"></td>
                         <td><?= $data['status'] ?></td>
                         <td>
-                            <?= $data['id_petugas'] ?>
+                        <?= $data['id_petugas'] ?>
                         </td>
                         <TD>
 
@@ -73,6 +73,7 @@ $query = $db->query("SELECT * FROM pengaduan");
                 <?php endwhile ?>
             </tbody>
         </table>
+        
         <a href="laporan.php " class="btn btn-danger">Kembali</a>
         <a href="tanggapan.php" class="btn btn-secondary">Tambah</a>
 

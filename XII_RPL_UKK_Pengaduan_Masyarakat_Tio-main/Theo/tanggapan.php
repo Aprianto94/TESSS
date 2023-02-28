@@ -63,7 +63,7 @@ $query = $db->query("SELECT * FROM pengaduan");
                         <td><?= $data['status'] ?></td>
                         <TD>
 
-                        <a href="tambah6.php " class="btn btn-danger">Tanggapan</a>
+                        <a href="tambah6.php?id_pengaduan=<?= $data['id_pengaduan'] ?> " class="btn btn-danger">Tanggapan</a>
                         </TD>
 
 
@@ -78,22 +78,37 @@ $query = $db->query("SELECT * FROM pengaduan");
 
 
     <h2>Tanggapan</h2>
-    <div class="">
+    <div class="container">
         <?php
-        $query = $db->query("select * from tanggapan");
-        $data = $query->fetchAll();
+        $query = $db->query("SELECT * FROM tanggapan INNER JOIN pengaduan ON pengaduan.id_pengaduan = tanggapan.id_pengaduan INNER JOIN petugas ON petugas.id_petugas = tanggapan.id_petugas;");
+        $datas = $query->fetchAll();
         // var_dump($data);
         // die();
 
         ?>
-        <hr>
-        <?php foreach ($data as $data) : ?>
-            <h3> Id Admin :
-                <?= $data['id_petugas']; ?></h3>
-            <p><?= $data['tanggapan']; ?></p>
+        <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-secondary bg-white text-center">
+            <thead class="bg-secondary text-white">
+                <th>Id</th>
+                <th>Pengaduan</th>
+                <th>Tanggal Tanggapan</th>
+                <th>Tanggapan</th>
+                <th>Petugas</th>
+            </thead>
 
-            <div class=""></div>
-        <?php endforeach ?>
+            <tbody>
+                <?php foreach ($datas as $data) : ?>
+                    <tr>
+                        <td><?= $data['id_tanggapan'] ?></td>
+                        <td><?= $data['isi_laporan'] ?></td>
+                        <td><?= $data['tgl_tanggapan'] ?></td>
+                        <td><?= $data['tanggapan'] ?></td>
+                        <td><?= $data['nama_petugas'] ?></td>
+
+
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
     </div>
     </hr>
 

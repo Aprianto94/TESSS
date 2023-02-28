@@ -1,6 +1,6 @@
 <?php
 require('koneksi.php');
-
+$id = $_GET['id_pengaduan'];
 $db = new PDO("mysql:host=localhost;dbname=pengaduan_masyarakat", 'root', '');
 $query = $db->query("SELECT * FROM pengaduan");
 
@@ -34,20 +34,23 @@ $query = $koneksi->query("SELECT * FROM pengaduan");
         <div class="row row-cols-3">
             <div></div>
             <div>
-                <form action="proses_tambah4.php" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <form action="proses_tambah6.php?id_pengaduan=<?= $id ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div>
                         <h1 align=center class="text-white">Tambah Laporan</h1>
                     </div>
                     <div>
                         <div>
-                            <label class="text-center">Isi Tanggapan</label>
-                            <textarea name="tanggapan" id="text" cols="30" rows="10"></textarea>
-                            <!-- <label>Status</label>
+                            <br>
+                                <label class="text-center" for="tanggal">Tanggal Tanggapan</label>
+                                <input type="date" name="tanggal" id="tanggal">
+                            </br>
+                            <label class="text-center" for="isi">Isi Tanggapan</label>
+                            <textarea name="isi_tanggapan" id="isi" cols="50" rows="10"></textarea>
+                            <label for='level'>Status</label>
                             <select name="status" id="level">
-                                <option value="1">0</option>
-                                <option value="2">Proses</option>
-                                <option value="3">Selesai</option>
-                            </select> -->
+                                <option value="proses">Proses</option>
+                                <option value="selesai">Selesai</option>
+                            </select>
                         </div>
                         <div>
                             <div><br>
