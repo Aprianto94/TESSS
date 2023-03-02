@@ -42,23 +42,23 @@
             <div class="collapse collapse-horizontal" id="collapseWidthExample">
                 <div class="card card-body" style="width: 300px;">
                 <br>
-                    <a href="logout2.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')">Logout</a>
+                    <a href="logout2.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')"><i class="bi bi-box-arrow-left"></i></a>
                 </br>
-                    <a href="tanggapan.php"class="btn btn-secondary">Laporan</a>
+                    <a href="tanggapan.php"class="btn btn-secondary"><i class="bi bi-envelope"></i></a>
                 </div>
             </div>
         </div>
     <div style="flex:1">
         <div class="container">
 
-            <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-secondary text-center">                        <thead class="bg-info text-white">
-                <h2 class="text-dark">HALAMAN UTAMA</h2>
-                <thead class="bg-secondary text-white text-center">
+            <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-secondary text-center rounded-pill">                        <thead class="bg-info text-white">
+                <h2 class="text-dark text-center">Dashboard</h2>
+                <thead class="bg-secondary text-white text-center rounded">
                     <th>USERNAME</th>
                     <th>NAMA</th>
                 </thead>
             
-                <tbody>
+                <tbody class="rounded">
                     <?php foreach ($query as $data) :?>
                     <tr>
                         

@@ -20,7 +20,7 @@ $query = $db->query("SELECT * FROM pengaduan");
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>Laporan</title>
 </head>
 <style>
@@ -63,7 +63,7 @@ $query = $db->query("SELECT * FROM pengaduan");
                         <td><?= $data['status'] ?></td>
                         <TD>
 
-                        <a href="tambah6.php?id_pengaduan=<?= $data['id_pengaduan'] ?> " class="btn btn-danger">Tanggapan</a>
+                        <a href="tambah6.php?id_pengaduan=<?= $data['id_pengaduan'] ?> " class="btn btn-danger"><i class="bi bi-envelope"></i></a>
                         </TD>
 
 
@@ -71,7 +71,7 @@ $query = $db->query("SELECT * FROM pengaduan");
                 <?php endwhile ?>
             </tbody>
         </table>
-        <a href="index2.php " class="btn btn-danger">Kembali</a>
+        <a href="index2.php " class="btn btn-danger"><i class="bi bi-house-fill"></i></a>
         <a href="tanggapan.php" class="btn btn-secondary">Tambah</a>
 
     </div>
