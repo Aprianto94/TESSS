@@ -20,7 +20,7 @@
 
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>HALAMAN ADMIN</title>
   </head>
   <style>
@@ -32,31 +32,40 @@
     <div class="bg-dark d-flex py-3">
         <h1 class="text-white me-2">Welcome <?= $_SESSION['username']; ?></h1>
         <div class="my-auto">
-            <a href="logout.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')">Logout</a>
-            <a href=""class="btn btn-secondary">Laporan</a>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample"><i class="bi bi-list-task"></i></i>
+            </button>
+            
         </div>
     </div>
+    <div style="flex:1" class="d-flex">
+        <div style="min-height: 120px;">
+            <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                <div class="card card-body" style="width: 300px;">
+                <br>
+                    <a href="logout2.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')"><i class="bi bi-box-arrow-left"></i></a>
+                </br>
+                    <a href="tanggapan.php"class="btn btn-secondary"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+        </div>
     <div style="flex:1">
         <div class="container">
 
-            <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-secondary">                        <thead class="bg-info text-white">
-                <h2 class="text-dark">HALAMAN UTAMA</h2>
-                <thead class="bg-secondary text-white">
+            <table border="2" cellpadding="10" cellspacing="0" class="table table-bordered border-secondary text-center rounded-pill">                        <thead class="bg-info text-white">
+                <h2 class="text-dark text-center">Dashboard</h2>
+                <thead class="bg-secondary text-white text-center rounded">
                     <th>USERNAME</th>
                     <th>NAMA</th>
-                    <th>UPDATE?</th>
                 </thead>
             
-                <tbody>
+                <tbody class="rounded">
                     <?php foreach ($query as $data) :?>
                     <tr>
                         
                             <td><?= $_SESSION['username']?></td>
                             <td><?= $data ['nama_petugas']?></td>
                             
-                        <td>
-                            <a href="edit.php?nik=<?= $nik?>"class="btn btn-success">Update</a>
-                        </td>
+                        
                     </tr>
                     <?php endforeach ;?>
                 </tbody>

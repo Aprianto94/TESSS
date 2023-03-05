@@ -32,7 +32,7 @@
     <div class="bg-dark d-flex py-3">
         <h1 class="text-white me-2">Welcome <?= $_SESSION['nama']; ?></h1>
         <div class="my-auto">
-            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample"><i class="bi bi-caret-down-square"></i>
+            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample"><i class="bi bi-list-task"></i></i>
             </button>
             
         </div>
@@ -43,9 +43,9 @@
             <div class="collapse collapse-horizontal" id="collapseWidthExample">
                 <div class="card card-body" style="width: 300px;">
                 <br>
-                    <a href="logout.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')">Logout</a>
-</br>
-                    <a href="laporan.php?id_pengaduan=<?= $_SESSION["nik"]?>"class="btn btn-secondary">Laporan</a>
+                    <a href="logout.php "class="btn btn-danger" onclick="return confirm('Yakin Logout?')"><i class="bi bi-box-arrow-left"></i></a>
+                </br>
+                    <a href="laporan.php?id_pengaduan=<?= $_SESSION["nik"]?>"class="btn btn-secondary"><i class="bi bi-megaphone"></i></a>
                 </div>
             </div>
         </div>

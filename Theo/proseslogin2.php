@@ -17,7 +17,7 @@ include("koneksi.php");
         header("Location:index2.php");
     }
     else{
-        $msg= "";
+        $msg= "USERNAME ATAU PASS SALAH!";
         header("Location:login2.php?msg={$msg}");
     }
 ?>
